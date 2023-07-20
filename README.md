@@ -113,3 +113,7 @@ https://aclanthology.org/events/emnlp-2022
 ![](./images/z4533372114484_d18c393bfedb2d5d70ad176ebfa8d5ba.jpg)
 
 ![Alt text](./images/image.png)
+
+![Alt text](./images/DanhGiaMonHoc.png)
+
+![Alt text](image.png)
