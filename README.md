@@ -117,3 +117,64 @@ https://aclanthology.org/events/emnlp-2022
 ![Alt text](./images/DanhGiaMonHoc.png)
 
 ![Alt text](image.png)
+
+## 030823
+## Rút trích thông tin văn bản (Information extraction)
+
+Các bài toán đặc trưng
+- nhận diện thực thể định danh: NER
+- 
+    - event extraction
+
+Mục tiêu
+- annotate (gắn nhãn tài liệu)
+- tại sao lại cần chuyển từ html sang xml?
+
+Công nghệ 
+- lexicon lookups: tìm kiếm một thuật ngữ có trong từ điển hay không
+
+Quy trình xây dựng kho dữ liệu tri thức
+
+cần lưu dữ liệu về knowledge DB và dùng từ đây để chạy các thuật toán học máy -> hi vọng chạy ổn định hơn =))
+
+Một số ứng dụng
+- map skills giữa JD và CV =))
+
+Landscape for IE Tasks:
+1.
+2. 
+3. Complexity
+- rút trích thông tin dạng closed set (trong hữu hạn )
+- regular set (vô hạn có format =))), ví dụ số điện thoại (biết dc có nhiu số :'>)
+- complex pattern ()
+- ambiguous pattern (không có format cụ thể) => khó, ví dụ tên riêng
+4. single field vs record
+- 
+
+Các mô hình sử dụng trong IE
+- Lexicons: lướt qua văn bản, kiểm tra đối tượng đang xét có trong tập từ điển khum
+- classify pre-segmented candidates: xác định term đang xét thuộc lớp nào 
+- sliding window: y chang trên mà dùng cửa số trượt =))
+- boundary models: chạy hai vòng lặp, một tìm nơi bắt đầu, một tìm nơi kết thúc 
+- finite state machines
+- context free grammars
+
+regular expressions
+- input: các mẫu đã được gán nhãn thủ công
+- thường dùng cho số, date, email, tên người có đi kèm chức danh (Dr. Abc)
+
+Sequence labeling: gắn nhãn từng token thuộc về một **loại đặc biệt** thể hiện cho loại đối tượng
+- dùng IOB annotation trong đó I-inside, O-outside, B-begin, gán trên từng token
+- giới thiệu IOB annotation/CONLL format, [CoNLL-U](https://universaldependencies.org/format.html) 
+- có thể đoán ra những token ngay cả khi không có trong từ điển train do đã học được pattern
+
+Relation extraction methods
+- manually engineered rules: 
+    - rules based on words/entities/parsed text: ví dụ <company> located in <location>
+- weakly supervised relation extraction (semi-supervised)
+    - giả sử có rule: <company> located in <location>
+    - sau khi tìm dc, ta duyệt cả văn bản tìm các từ giữa company và location còn lại -> tạo rule mới và tiếp tục
+
+[CoNLL2003](https://huggingface.co/datasets/conll2003)
+
+Lab03: làm NER cho tiếng việtt
