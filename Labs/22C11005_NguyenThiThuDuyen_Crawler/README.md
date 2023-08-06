@@ -13,4 +13,5 @@ This script allows you to find GitHub repositories related to a specific article
 The script depends on the following Python libraries:
 - requests
 - beautifulsoup4
+
 These libraries are listed in the requirements.txt file and can be installed using pip as mentioned in the Usage section.
