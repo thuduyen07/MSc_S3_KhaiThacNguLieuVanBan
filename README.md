@@ -178,3 +178,9 @@ Relation extraction methods
 [CoNLL2003](https://huggingface.co/datasets/conll2003)
 
 Lab03: làm NER cho tiếng việtt
+
+
+# Theory Final Project:
+- Paper: What the DAAM: Interpreting Stable Diffusion Using Cross Attention
+- Link paper: https://arxiv.org/pdf/2210.04885.pdf
+- Github: https://github.com/castorini/daam
