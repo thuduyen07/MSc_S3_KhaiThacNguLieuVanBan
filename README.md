@@ -179,6 +179,67 @@ Relation extraction methods
 
 Lab03: làm NER cho tiếng việtt
 
+## 100823
+## Thu thập, tiền xử lý và biểu diễn văn bản
+
+Thu thập dữ liệu
+
+1. Xác định bài toán để chọn cách giải:
+    - Phân loại: có số lượng và nhãn loại trước
+    - Sequence-to-sequence: input và output đều là sequence nhưng không nhất thiết cùng kích thước. Ví dụ, tóm tắt một văn bản cho trước, chatgpt
+    - gom nhóm: không xác định trước nhãn loại như bài toán phân loại
+
+2. Thu thập dữ liệu ứng với phương pháp giải:
+    - thu thập tự động (crawler + gắn nhãn tự động)
+    - bán tự động (crawler + gắn nhãn tay)
+    - tự tạo dữ liệu
+    - few-shot-learning?
+
+Xử lý dữ liệu
+- làm sạch dữ liệu: upper/low-case, nếu ngữ nghĩa như nhau thì nên biểu diễn dưới 1 hình thức nhất định
+- xử lí dữ liệu bị thiếu
+- đánh giá các yếu tố về cân bằng dữ liệu: 
+    - từ lạ, chỉ xuất hiện rất ít lần trong một văn bản -> nên bỏ hay không =))
+    - các từ dùng quá thường xuyên nhưng không mang nội dung chính mà máy cần học
+- code-switch, trường hợp lẫn lộn các thứ tiếng trong cùng một văn bản
+
+Biểu diễn dữ liệu
+- chuyển văn bản có độ dài khác nhau về một dạng dữ liệu có kích thước cố định (thông thường là vector có cùng chiều dài)
+
+Một số cách biểu diễn:
+- TF-IDF: 
+
+    - TF: tần số xuất hiện của các từ trong một câu
+    - IDF: đánh trọng số thấp cho các từ xuất hiện trong nhiều câu và ngược lại do ta cần phân biệt các câu với nhau
+    - Hạn chế: 
+        - kích thước vector tỉ lệ thuận với độ lớn của từ điển -> vector thưa
+        - không thể hiện được thứ tự từ -> dùng n-gram: khắc phục hạn chế thứ tự từ của các phương pháp trước đó -> vector thưa hơn nữa =))
+
+- Word-embedding: học cách thiết kế cái nì :'>
+
+## Backpropagation and Neural Networks
+
+Giới thiệu perceptron 
+- hàm activation: đưa giá trị tổng W.X về một đoạn xác định (một cách chuẩn hoá), chuyển kết quả vừa tính từ tuyến tính sang phi tuyến?
+- w_0 ~ bias giúp hàm linh hoạt hơn ??
+
+Một số thuật toán tìm bộ trọng số W như:
+- SGD
+- Adam
+
+Cost function (tuỳ bài toán sẽ có hàm loss khác nhau):
+- Cross entropy, thường dùng cho bài toán phân loại 
+- MAF
+- MSE
+
+Gradient descent - cho biết xu hướng biến thiên của hàm theo biến đang xét
+
+Learning rate - scheduling learning rate: quyết định tốc độ học của mô hình, tránh trường hợp hàm loss không thể hoặc hội tụ chậm
+
+
+
+
+
 
 # Theory Final Project:
 - Paper: What the DAAM: Interpreting Stable Diffusion Using Cross Attention
