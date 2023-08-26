@@ -1,1 +1,5 @@
 sklearn
+pandas
+scikit-learn
+matplotlib
+
