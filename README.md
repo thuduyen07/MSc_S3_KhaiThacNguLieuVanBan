@@ -236,7 +236,90 @@ Gradient descent - cho biết xu hướng biến thiên của hàm theo biến �
 
 Learning rate - scheduling learning rate: quyết định tốc độ học của mô hình, tránh trường hợp hàm loss không thể hoặc hội tụ chậm
 
+## 170823
+## SentimentAnalysis
 
+Pre-condition: Tách văn bản thành từng từ: dùng keras - text_to_word_sequcece
+
+Cách 1: (làm baseline) văn bản có từ positive thì khen, không thì là chê =)) --> không tính đến các trường hợp như: phủ định, văn bản có hướng negative mặt dùng có môt số từ positive
+
+Cách 2: tf_idf loại bỏ bớt các từ lặp lại nhiều lần
+
+Cách 3: dùng vectorizer --> svm 
+
+### word embeddings = word vector 
+
+Biểu diễn các từ thể hiện được việc chúng có ngữ nghĩa gần nhau hay không bằng các word vector (thường từ 300 đến 500, nhiều lắm là 700)
+
+là ma trận trọng số với kích-thước-vector-biểu-diễn-từ x ma-trận-trọng-số (ví dụ: (1x17) x (17x300))- về bản chất khá giống mạng dense/fully-connected
+Có 2 cách chính:
+- thiết kế tay model (alore)
+- dùng mạng neural để học
+
+Word2Vec
+
+Đánh giá một câu sinh ra bởi mô hình có tự nhiên, có trong thực tế hay không bằng xác suất xuất hiện trong thực tế dùng ppl complexity
+
+LLM --> human feedback (đánh giá câu sinh ra có hợp lý khum và điều chỉnh lại model -- thay cho ppl trước đây)
+
+glue benchmark -- superGLUE
+
+Two model variants
+- skip-grams
+- continueous bag of words (CBOW)
+
+Word2Vec của google
+FastText của Facebook -- có tiếng Việt
+
+Do thiếu ngữ cảnh để phân biệt đồng âm khác nghĩa (ví dụ bank ngân hàng và bank bờ sông) --> 
+
+Về thử 
+- sử dụng các dạng pre-train embedding (word2vec) khác nhau và đánh giá chúng
+- chạy 3 cách: convoluntion (cnn), lstm (rnn), lấy trung bình (average vector) -> cái nào ra kết quả tốt hơn
+
+## 240823
+## Attention - Transformer - BERT
+
+Giới thiệu Multi-channel LSTM-CNN
+
+Giới thiệu Encoder - Decoder dùng LSTM cho dạng sequence-to-sequence
+
+Giới thiệu Attention: hành vi nhận thức để lựa chọn tập trung vào cái gì và bỏ qua cái gì
+
+Attention in text: huấn luyện để biết mỗi một câu nên chú ý keyword nào
+
+Giới thiệu Attention in NLP
+- Additive attention là gì
+
+Giới thiệu Attention in Transformer:
+- Query: 
+- Key
+- Value
+- Multi-Head Attention: số lần dùng mạng dense ở bước linear
+
+Giới thiệu Transformer
+- Positional Encoding: giúp thể hiện thứ tự từ do transformer nguyên thuỷ ko thể hiện điều này
+
+Giới thiệu BERT
+- CLS trong BERT
+- Pre-train language model
+- Masked language modeling: 
+    - dự đoán từ bị che (điền vào chỗ trống) -> cao xa hơn thằng dự đoán tự tiếp theo :'>
+    - dự đoán câu tiếp theo
+
+Giới thiệu T5 (một thằng kế trước thằng chatgpt):
+input=prompt => output=answer
+
+Giới thiệu chatgpt
+Pre-train LM => [prompt] --(LM)--> [answer] --(model Preferrence*)--> trả ra điểm [0,10] --> cập nhật LM
+
+* model cần trainning
+
+Các bước train chatgpt (LM và preferrence)
+- B1: train rất nhiều LM để từ 1 prompt tạo nhiều answer
+- B2: để người đánh giá (reinforcement human feedback) -> bộ data ứng với prompt và answer đi kèm điểm
+- B3: lấy data vừa tạo làm mồi để train model Preference
+- B4: HF -> RLHF (AI feedback đồ :'>), người đưa ra prompt -> LM tạo nhiều answer -> dùng chatgpt để chọn lại kết quả tốt nhất :'> => tránh model học điều xấu
 
 
 
@@ -245,3 +328,6 @@ Learning rate - scheduling learning rate: quyết định tốc độ học củ
 - Paper: What the DAAM: Interpreting Stable Diffusion Using Cross Attention
 - Link paper: https://arxiv.org/pdf/2210.04885.pdf
 - Github: https://github.com/castorini/daam
+
+- Sử dụng DAAM để trích xuất các thuộc tính trong các ảnh làm dữ liệu đầu vào các thuộc tính
+- Tạo caption cho ảnh không cần phải input thuộc tính như các phương pháp truyền thống
