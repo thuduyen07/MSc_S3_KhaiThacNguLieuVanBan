@@ -331,3 +331,79 @@ Các bước train chatgpt (LM và preferrence)
 
 - Sử dụng DAAM để trích xuất các thuộc tính trong các ảnh làm dữ liệu đầu vào các thuộc tính
 - Tạo caption cho ảnh không cần phải input thuộc tính như các phương pháp truyền thống
+
+## 070923
+## Tìm kiếm thông tin (Information Retrieval)
+![Alt text](image.png)
+
+So sánh IR vs. database
+![Alt text](image-1.png)
+
+Ứng dụng IR - kiến trúc phổ biến: IR-based question answering
+![Alt text](image-2.png)
+- bước  1: phân tích câu hỏi người dùng
+    - phân loại câu hỏi
+    - nhận diện thực thể trong câu hỏi
+    - mở rộng câu truy vấn
+- bước 2: tìm kiếm IR
+    - tìm câu/đoạn/tài liệu có thể chứa câu trả lời
+- bước 3: tìm câu trả lời
+
+Giới thiệu Web Search Process
+![Alt text](images/WebSearchProcess.PNG)
+
+Matching in IR
+![Alt text](images/520339_1_En_10_Fig2_HTML.png)
+
+Chọn từ khoá 
+- Phương pháp đơn giản: chọn từ có tần suất ở giữa 
+![Alt text](images/images.jpeg)
+
+Chọn trọng số - Phương pháp trọng số: tf*idf
+- TF: 
+    - tần suất xuất hiện term trong tài liệu
+
+![Alt text](images/Unknown.jpeg)
+![Alt text](images/Unknown.png)
+
+Tập tin nghịch đảo (inverted file)
+do term là hữu hạn nên việc tìm kiếm bằng inverted file có thể giúp tăng hiệu năng từ đó tìm kíêm nhanh hơn. Khi người dùng hỏi europe chẳng hạn, ta nhắm mắt trả về docID là 1, 2, 7 trong index lun
+
+![Alt text](images/inverted_file.png)
+
+![Alt text](images/inverted_index.png)
+
+matching score in IR
+
+![Alt text](images/matching_score.jpg.webp)
+
+boolean model: tìm tài liệu theo biểu thức logic
+![Alt text](images/boolean_model.webp)
+
+tài liệu D = biểu thức logic "and" của các từ khoá. Ví dụ: D = t1 and t2 and t3 and ... tn
+
+Câu truy vấn Q = biểu thức Bool của các từ khoá. ví dụ Q = t1 or (t2 and not t3)
+![Alt text](images/boolean_model_explain1.png)
+
+Giới thiệu BM25 - ranking kết quả theo điểm dựa vào TF và IDF
+![Alt text](images/BM25.png)
+
+![Alt text](image-3.png)
+
+Đánh giá độ chính xác của IR dựa trên recall và ![Alt text](images/Precisionrecall.svg.png)
+![Alt text](images/Visualizing-accuracy-recall-aka-sensitivity-and-precision-which-are-the-common.ppm.png)
+
+đồ thị 11 điểm thể hiện độ chính xác trung bình
+
+độ đo xếp hạng - MAP (Mean Average Precision)
+![Alt text](images/IMG_A38EAD18C418-1.jpeg)
+![Alt text](image-4.png)
+- tử là index j
+- mẫu là vị trí kết quả đúng trả về của từng hệ thống
+
+F-score: đánh trọng số recal, trong đó recal sẽ quan trong hơn precision $\beta$ lần
+![Alt text](images/F_score.png)
+
+Giới thiệu [Download ElasticSearch](https://github.com/elastic/elasticsearch)
+
+link tài liệu của thầy: https://drive.google.com/drive/folders/1X37iHqqMkMrv_BrYq0oMJWoHyY7gp9y8
