@@ -407,3 +407,22 @@ F-score: đánh trọng số recal, trong đó recal sẽ quan trong hơn precis
 Giới thiệu [Download ElasticSearch](https://github.com/elastic/elasticsearch)
 
 link tài liệu của thầy: https://drive.google.com/drive/folders/1X37iHqqMkMrv_BrYq0oMJWoHyY7gp9y8
+
+# Lịch nộp và báo cáo đồ án
+
+Seminar: 5-7/10
+
+Đồ án thực hành: 17-18/10
+
+- Nộp report, demo, source code, (slide+clip)??
+
+## 210923
+## Mô hình ngôn ngữ lớn cho văn bản và chatbot (LLM for texts and chatbots)
+
+![FAQ chatbot](image-5.png)
+
+![Survey of LLM](image-8.png)
+[Survey of LLM](https://arxiv.org/pdf/2303.18223v12.pdf)
+
+Xây dựng chatbot FQA dùng LLM với dữ liệu của doanh nghiệp
+![Langchain approach](image-6.png)
