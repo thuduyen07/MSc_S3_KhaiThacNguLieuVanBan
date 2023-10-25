@@ -426,3 +426,6 @@ Seminar: 5-7/10
 
 Xây dựng chatbot FQA dùng LLM với dữ liệu của doanh nghiệp
 ![Langchain approach](image-6.png)
+
+[Introducing Accelerated PyTorch Training on Mac](https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/)
+[Locally](https://pytorch.org/get-started/locally/)
