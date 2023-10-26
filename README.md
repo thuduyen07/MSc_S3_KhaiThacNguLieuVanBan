@@ -425,4 +425,9 @@ Seminar: 5-7/10
 [Survey of LLM](https://arxiv.org/pdf/2303.18223v12.pdf)
 
 Xây dựng chatbot FQA dùng LLM với dữ liệu của doanh nghiệp
+  
 ![Langchain approach](image-6.png)
+
+[Introducing Accelerated PyTorch Training on Mac](https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/)
+[Locally](https://pytorch.org/get-started/locally/)
+
