@@ -65,10 +65,10 @@ def main():
     args = get_args()
     plt.switch_backend('agg')
 
-    # device = "cpu" if args.no_cuda else "cuda"
-    device = "cpu" if args.no_cuda else "mps"
-    if(device == "mps"):
-        torch.mps.empty_cache()
+    device = "cpu" if args.no_cuda else "cuda"
+    # device = "cpu" if args.no_cuda else "mps"
+    # if(device == "mps"):
+    #     torch.mps.empty_cache()
     print(f'Using device: {device}')
     pipe = StableDiffusionPipeline.from_pretrained(args.model, use_auth_token=True).to(device)
     print(f'Current pipe: {pipe}')
@@ -173,13 +173,15 @@ def main():
         with gr.Row():
             with gr.Column():
                 dropdown = gr.Dropdown([
-                    'A brown pokemon, a white pikachu, and a blue pokemon in a green field',
-                ], label='Examples', value='A brown pokemon, a white pikachu, and a blue pokemon in a green field')
+                    'A brown pokemon has a blue tail',
+                    'A blue pokemon with a long wings', 
+                    'A white pikachu in a messy wigs',
+                ], label='Examples', value='A brown pokemon has a blue tail')
 
-                text = gr.Textbox(label='Prompt', value='A brown pokemon, a white pikachu, and a blue pokemon in a green field')
+                text = gr.Textbox(label='Prompt', value='A brown pokemon has a blue tail')
 
                 with gr.Row():
-                    doc = cached_nlp('A brown pokemon, a white pikachu, and a blue pokemon in a green field')
+                    doc = cached_nlp('A brown pokemon has a blue tail')
                     tokens = [''] + [x.text for x in doc if x.pos_ == 'ADJ']
                     dropdown2 = gr.Dropdown(tokens, label='Adjective to replace', interactive=True)
                     text2 = gr.Textbox(label='New adjective', value='')
@@ -188,7 +190,7 @@ def main():
                 slider1 = gr.Slider(15, 30, value=25, interactive=True, step=1, label='Inference steps')
 
                 submit_btn = gr.Button('Submit', elem_id='submit-btn')
-                viz = gr.HTML(dependency('A brown pokemon, a white pikachu, and a blue pokemon in a green field'), elem_id='viz')
+                viz = gr.HTML(dependency('A brown pokemon has a blue tail'), elem_id='viz')
 
             with gr.Column():
                 with gr.Tab('Images'):
