@@ -431,3 +431,4 @@ Xây dựng chatbot FQA dùng LLM với dữ liệu của doanh nghiệp
 [Introducing Accelerated PyTorch Training on Mac](https://pytorch.org/blog/introducing-accelerated-pytorch-training-on-mac/)
 [Locally](https://pytorch.org/get-started/locally/)
 
+Final Report link: https://youtu.be/I2hPccejfaU 
