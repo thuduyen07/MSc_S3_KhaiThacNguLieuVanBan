@@ -406,6 +406,8 @@ F-score: đánh trọng số recal, trong đó recal sẽ quan trong hơn precis
 
 Giới thiệu [Download ElasticSearch](https://github.com/elastic/elasticsearch)
 
+![Alt text](_com.apple.Pasteboard.si5xnj.PNG)
+
 link tài liệu của thầy: https://drive.google.com/drive/folders/1X37iHqqMkMrv_BrYq0oMJWoHyY7gp9y8
 
 # Lịch nộp và báo cáo đồ án
